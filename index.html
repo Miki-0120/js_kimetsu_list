@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="loading-wrapper">
+    <div id="loading-text">LOADING...</div>
+    <div id="loading-content">
+  </div>
+  </div>
+    <script src="script.js"></script>
+  </div>
+  <div class="content">
+    <form id="radioButton">
+      <input type="radio" id="all" name="character" value="all" onclick="formSwitch()" checked />
+      <label for="huey">全キャラクター</label>
+      <input type="radio" id="kisatutai" name="character" value="kisatsutai" onclick="formSwitch()"/>
+      <label for="dewey">鬼殺隊</label>
+      <input type="radio" id="hashira" name="character" value="hashira" onclick="formSwitch()"/>
+      <label for="dewey">柱</label>
+      <input type="radio" id="oni" name="character" value="oni" onclick="formSwitch()"/>
+      <label for="dewey">鬼</label>
+  </form>
+  <div id="chara-list" class="character-grid">
+    </div>
+  </div>
+</body>
+</html>
