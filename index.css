@@ -1,0 +1,75 @@
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: #333;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .character-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #555;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+#chara-list {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .character-card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #555;
+  }
+  
+  .character-name {
+    margin-bottom: 5px;
+  }
+  
+  .character-image img {
+    max-width: 100px;
+    max-height: 150px;
+  }
+  
+  .character-category {
+    margin-top: 5px;
+  }
+/* ローディング表示用のスタイルを追加 */
+.content {
+    display: block;
+    color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  #loading-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: white;
+    font-size: 2em;
+  }
+
+  #radioButton {
+    margin: 20px 0;
+    text-align: center;
+    color: #000;
+  }
+  
