@@ -1,13 +1,13 @@
+const BASE_URL = "https://ihatov08.github.io/kimetsu_api/api/all.json";
+const URL = "https://ihatov08.github.io";
+
 async function getdata() {
-  const BASE_URL = "https://ihatov08.github.io/kimetsu_api/api/all.json";
-  const url = "https://ihatov08.github.io";
-  const response = await fetch(BASE_URL);
+  const response = await fetch(BASE_URL,URL);
   const characters = await response.json();
   const charaListContainer = document.querySelector("#chara-list");
   
   charaListContainer.innerHTML = '';
   
-  // グリッドレイアウトではカウンターと行の作成が不要なので削除
   await Promise.all(characters.map(async (character) => {
     const card = document.createElement("div");
     card.className = "character-card";
@@ -19,7 +19,7 @@ async function getdata() {
     const imgDiv = document.createElement("div");
     imgDiv.className = "character-image";
     const img = document.createElement("img");
-    img.setAttribute("src", url + character.image);
+    img.setAttribute("src", URL + character.image);
     imgDiv.appendChild(img);
     
     const categoryDiv = document.createElement("div");
@@ -30,7 +30,6 @@ async function getdata() {
     card.appendChild(imgDiv);
     card.appendChild(categoryDiv);
     
-    // カードをグリッドコンテナに直接追加
     charaListContainer.appendChild(card);
   }));
   
@@ -39,12 +38,12 @@ async function getdata() {
 
 async function formSwitch() {
   const loadingWrapper = document.getElementById('loading-wrapper');
-  loadingWrapper.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 
   const radioButtonValue = document.querySelector("#radioButton").character.value;
   const charaListContainer = document.querySelector("#chara-list");
   const BASE_URL = `https://ihatov08.github.io/kimetsu_api/api/${radioButtonValue}.json`;
+  response = await fetch(`${BASE_URL}/${radioButtonValue}.json`);
   const url = "https://ihatov08.github.io";
 
   try {
@@ -59,7 +58,6 @@ async function formSwitch() {
       characters = await response.json();
     }
     
-    // グリッドレイアウトではカウンターと行の作成が不要なので削除
     await Promise.all(characters.map(async (character) => {
       const card = document.createElement("div");
       card.className = "character-card";
@@ -71,7 +69,7 @@ async function formSwitch() {
       const imgDiv = document.createElement("div");
       imgDiv.className = "character-image";
       const img = document.createElement("img");
-      img.setAttribute("src", url + character.image);
+      img.setAttribute("src", URL + character.image);
       imgDiv.appendChild(img);
       
       const categoryDiv = document.createElement("div");
@@ -82,7 +80,6 @@ async function formSwitch() {
       card.appendChild(imgDiv);
       card.appendChild(categoryDiv);
       
-      // カードをグリッドコンテナに直接追加
       charaListContainer.appendChild(card);
     }));
   }
