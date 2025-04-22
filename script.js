@@ -1,8 +1,8 @@
-const BASE_URL = "https://ihatov08.github.io/kimetsu_api/api/all.json";
-const URL = "https://ihatov08.github.io";
+const BASE_URL = "https://ihatov08.github.io";
+const API_URL = `${BASE_URL}/kimetsu_api/api`;
 
 async function getdata() {
-  const response = await fetch(BASE_URL,URL);
+  const response = await fetch(`${API_URL}/all.json`);
   const characters = await response.json();
   const charaListContainer = document.querySelector("#chara-list");
   
@@ -19,7 +19,7 @@ async function getdata() {
     const imgDiv = document.createElement("div");
     imgDiv.className = "character-image";
     const img = document.createElement("img");
-    img.setAttribute("src", URL + character.image);
+    img.setAttribute("src", BASE_URL + character.image);
     imgDiv.appendChild(img);
     
     const categoryDiv = document.createElement("div");
@@ -38,25 +38,19 @@ async function getdata() {
 
 async function formSwitch() {
   const loadingWrapper = document.getElementById('loading-wrapper');
+  loadingWrapper.style.display = "block";
   document.body.style.overflow = 'hidden';
 
-  const radioButtonValue = document.querySelector("#radioButton").character.value;
+  // const radioButtonValue = document.querySelector("#radioButton").character.value;
+  const radioButtonValue = document.querySelector('input[name="character"]:checked').value;
   const charaListContainer = document.querySelector("#chara-list");
-  const BASE_URL = `https://ihatov08.github.io/kimetsu_api/api/${radioButtonValue}.json`;
-  response = await fetch(`${BASE_URL}/${radioButtonValue}.json`);
-  const url = "https://ihatov08.github.io";
-
+  
   try {
     charaListContainer.innerHTML = '';
     
-    let characters;
-    if (radioButtonValue === "all") {
-      const response = await fetch(`https://ihatov08.github.io/kimetsu_api/api/${radioButtonValue}.json`);
-      characters = await response.json();
-    } else {
-      const response = await fetch(BASE_URL);
-      characters = await response.json();
-    }
+      const response = await fetch(`${API_URL}/${radioButtonValue}.json`);
+      const characters = await response.json();
+    
     
     await Promise.all(characters.map(async (character) => {
       const card = document.createElement("div");
@@ -69,7 +63,7 @@ async function formSwitch() {
       const imgDiv = document.createElement("div");
       imgDiv.className = "character-image";
       const img = document.createElement("img");
-      img.setAttribute("src", URL + character.image);
+      img.setAttribute("src", BASE_URL + character.image);
       imgDiv.appendChild(img);
       
       const categoryDiv = document.createElement("div");

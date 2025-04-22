@@ -44,7 +44,7 @@
   .character-category {
     margin-top: 5px;
   }
-/* ローディング表示用のスタイルを追加 */
+  
 .content {
     display: block;
     color: #fff;
@@ -52,7 +52,7 @@
     max-width: 800px;
   }
 
-  #loading-wrapper {
+  #loading-content {
     position: fixed;
     top: 0;
     left: 0;
